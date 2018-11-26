@@ -41,3 +41,22 @@ func (psdr *StockDataRaw) ToString() (string, error) {
 	}
 	return "", err
 }
+
+func (psdr *StockDataRaw) ToStockData() (*StockData, error) {
+	if nil == psdr {
+		return nil, errors.New("nil")
+	}
+
+	data := StockData{}
+
+	data.StockType = psdr.StockType
+	data.StockCode = psdr.StockCode
+	stockdate, err1 := time.Parse("2006/01/02", psdr.StockDate)
+	if nil == err1 {
+		data.StockDate = stockdate
+	}
+
+	var f float32
+
+	return &data, nil
+}
