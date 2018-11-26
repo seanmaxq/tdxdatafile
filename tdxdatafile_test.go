@@ -8,6 +8,6 @@ import (
 func TestAll(t *testing.T) {
 	var oneRecord StockDataRaw
 	oneRecord.StockType = "sz"
-	fmt.Println(oneRecord.ToString)
+	fmt.Println(oneRecord.ToString())
 
 }
