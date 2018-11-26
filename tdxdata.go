@@ -66,9 +66,9 @@ func (psdr *StockDataRaw) ToString() (string, error) {
 	return "", err
 }
 
-func (psdr *StockDataRaw) ToStockData() (*StockData, error) {
+func (psdr *StockDataRaw) ToStockData() (*StockData, string, error) {
 	if nil == psdr {
-		return nil, errors.New("nil")
+		return nil, "", errors.New("nil")
 	}
 
 	strError := ""
@@ -129,5 +129,5 @@ func (psdr *StockDataRaw) ToStockData() (*StockData, error) {
 		err = nil
 	}
 
-	return &data, nil
+	return &data, strError, nil
 }
